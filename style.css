@@ -1,0 +1,8 @@
+.search-box{
+    display: flex;
+}
+.btn{
+    padding: 5px 15px;
+    background-color: salmon;
+    color: white;
+}
