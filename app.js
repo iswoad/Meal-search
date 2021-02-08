@@ -1,10 +1,14 @@
-    
+//multiple empty string validation
+function hasWhiteSpace(s) {
+        return s.indexOf(' ') >= 0;
+      }
     //input keyword catch and show result
 
 const getSearchResult = () =>{
     const searchKeyWord = document.getElementById('search-input').value;
     //empty search validation
-    if (searchKeyWord === '') {
+
+    if (searchKeyWord === '' || hasWhiteSpace(searchKeyWord)) {
         window.alert('No Meal is Searched')
     }else{
         console.log('searchKeyWordclicked',searchKeyWord);
