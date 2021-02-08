@@ -1,3 +1,6 @@
+    
+    //input keyword catch and show result
+
 const getSearchResult = () =>{
     const searchKeyWOrd = document.getElementById('search-input').value;
    
@@ -31,6 +34,8 @@ const getSearchResult = () =>{
     })
 }
 
+    //meal ingredients showing function
+
 const showMealInfo = (mealId) => {
     console.log(mealId)
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
@@ -44,9 +49,6 @@ const displayMealInfo = info =>{
         const singleMealInfo = document.getElementById('single-meal');
         singleMealInfo.innerHTML=`<div class="modal-dialog  mb-5">
                                             <div class="class="modal-content shadow rounded">
-                                                <div class="modal-header border-0">
-                                                <h5 class="modal-title">Food Details</h5>
-                                                </div>
                                                     <div class="modal-body p-4">
                                                     <img src="${info.strMealThumb}" class="card-img-top">
                                                         <div>
