@@ -6,7 +6,6 @@ function hasWhiteSpace(s) {
 
 const getSearchResult = () =>{
     const searchKeyWord = document.getElementById('search-input').value;
-    console.log(hasWhiteSpace(searchKeyWord))
     //empty search validation
     if (searchKeyWord === '' || !!hasWhiteSpace(searchKeyWord)) {
         window.alert('No Meal is Searched')
