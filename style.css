@@ -6,3 +6,10 @@
     background-color: salmon;
     color: white;
 }
+.searched-meal img{
+    width: 200px;
+}
+.searched-meal{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

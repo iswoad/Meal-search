@@ -1,25 +1,26 @@
-function getSearchResult(){
-    
-    const searchKeyWord = document.getElementById('search-input').value;
-    console.log(searchKeyWord)
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchKeyWord}`)
-    .then(response => response.json())
+const getSearchResult = () =>{
+    const searchKeyWOrd = document.getElementById('search-input').value;
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchKeyWOrd}`)
+    .then(res => res.json())
     .then(data => {
-    console.log(data)
-})
+        console.log(data);
+
+        data.meals.forEach((mealList) => {
+            console.log(mealList);
+            const mealName = mealList.strMeal;
+            const mealImage = mealList.strMealThumb;
+
+            document.getElementById('search-result').innerHTML += `
+            <div class="searched-meal">
+                <div class="single-meal">
+                <img src="${mealImage}"></img>
+                <h3>${mealName}</h3>
+                </div>  
+            </div>
+            `;
+        });
+    })
 }
 
 
-// const displayMeals = meals => {
-//     const mealsDiv = document.getElementById('search-results');
-//     meals.forEach( meal => {
-//         const mealDiv = document.createElement('div');
-//         mealDiv.className = 'single-meal'
-//         const mealInfo = `
-//             <h3 class="meal-name">${meals.strMeal}</h3>
-//         `
-//         mealDiv.innerHTML = mealInfo;
 
-//         mealsDiv.appendChild(mealDiv);
-//     });
-// }
