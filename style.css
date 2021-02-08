@@ -20,13 +20,12 @@
 
 }
 .single-meal{
-    border: 2px solid white;
-    border-radius: 20px;
+    
+
     text-align: center;
     background-color: gray;
     justify-content: inherit;
-    /* height: 226px;
-    width: 270px; */
+
 }
 .meal-title{
     background-color:whitesmoke;
@@ -37,9 +36,3 @@
     color: black;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
-/* .single-meal-img{
-    width: 500px;
-    justify-content: center;
-    border-radius: 10px;
-    margin: 0;
-} */
