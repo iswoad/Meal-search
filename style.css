@@ -7,9 +7,32 @@
     color: white;
 }
 .searched-meal img{
-    width: 200px;
+    width: 300px;
+    justify-content: center;
 }
-.searched-meal{
+#search-result{
+    background-color: white;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 40px;
+
+}
+.single-meal{
+    border: 2px solid white;
+    border-radius: 20px;
+    text-align: center;
+    background-color: gray;
+    justify-content: inherit;
+    /* height: 226px;
+    width: 270px; */
+}
+.meal-title{
+    background-color:whitesmoke;
+    padding: 10px 5px;
+}
+.single-meal p{
+    margin: 0;
+    color: black;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }

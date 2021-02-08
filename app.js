@@ -13,8 +13,10 @@ const getSearchResult = () =>{
             document.getElementById('search-result').innerHTML += `
             <div class="searched-meal">
                 <div class="single-meal">
-                <img src="${mealImage}"></img>
-                <h3>${mealName}</h3>
+                    <img src="${mealImage}"></img>
+                    <div class="meal-title">
+                        <p>${mealName}</p>
+                    </div>
                 </div>  
             </div>
             `;
