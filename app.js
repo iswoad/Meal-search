@@ -2,36 +2,42 @@
     //input keyword catch and show result
 
 const getSearchResult = () =>{
-    const searchKeyWOrd = document.getElementById('search-input').value;
-   
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchKeyWOrd}`)
-    .then(res => res.json())
-    .then(data => {
-        
-        console.log(data);
-
-        document.getElementById('search-result').innerHTML = '';
-
-        data.meals.forEach((eachMeal) => {
-            console.log(eachMeal);
-
+    const searchKeyWord = document.getElementById('search-input').value;
+    //empty search validation
+    if (searchKeyWord === '') {
+        window.alert('No Meal is Searched')
+    }else{
+        console.log('searchKeyWordclicked',searchKeyWord);
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchKeyWord}`)
+        .then(res => res.json())
+        .then(data => {
             
-            const mealId = eachMeal.idMeal
-            const mealName = eachMeal.strMeal;
-            const mealImage = eachMeal.strMealThumb;
-
-            document.getElementById('search-result').innerHTML += `
-                                            <div class="searched-meal my-5">
-                                                <div onclick="showMealInfo(${mealId})" class="single-meal card shadow rounded-3">
-                                                    <img src="${mealImage}" class="card-img-top"></img>
-                                                    <div class="meal-title text center">
-                                                        <p>${mealName}</p>
-                                                    </div>
-                                                </div>  
-                                            </div>
-            `;
-        });
-    })
+            console.log(data);
+    
+            document.getElementById('search-result').innerHTML = '';
+    
+            data.meals.forEach((eachMeal) => {
+                console.log(eachMeal);
+    
+                
+                const mealId = eachMeal.idMeal
+                const mealName = eachMeal.strMeal;
+                const mealImage = eachMeal.strMealThumb;
+    
+                document.getElementById('search-result').innerHTML += `
+                                                <div class="searched-meal my-5">
+                                                    <div onclick="showMealInfo(${mealId})" class="single-meal card shadow rounded-3">
+                                                        <img src="${mealImage}" class="card-img-top"></img>
+                                                        <div class="meal-title text center">
+                                                            <p>${mealName}</p>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                `;
+            });
+        })
+    }
+   
 }
 
     //meal ingredients showing function
