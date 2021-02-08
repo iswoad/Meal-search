@@ -6,28 +6,20 @@ function hasWhiteSpace(s) {
 
 const getSearchResult = () =>{
     const searchKeyWord = document.getElementById('search-input').value;
+   
     //empty search validation
-
     if (searchKeyWord === '' || hasWhiteSpace(searchKeyWord)) {
         window.alert('No Meal is Searched')
     }else{
-        console.log('searchKeyWordclicked',searchKeyWord);
+
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchKeyWord}`)
         .then(res => res.json())
         .then(data => {
-            
-            console.log(data);
-    
             document.getElementById('search-result').innerHTML = '';
-    
-            data.meals.forEach((eachMeal) => {
-                console.log(eachMeal);
-    
-                
+            data.meals.forEach((eachMeal) => { 
                 const mealId = eachMeal.idMeal
                 const mealName = eachMeal.strMeal;
                 const mealImage = eachMeal.strMealThumb;
-    
                 document.getElementById('search-result').innerHTML += `
                                                 <div class="searched-meal my-5">
                                                     <div onclick="showMealInfo(${mealId})" class="single-meal card shadow rounded-3">
@@ -47,7 +39,6 @@ const getSearchResult = () =>{
     //meal ingredients showing function
 
 const showMealInfo = (mealId) => {
-    console.log(mealId)
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
     .then(res => res.json())
     .then(data =>
